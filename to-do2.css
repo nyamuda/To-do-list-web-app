@@ -1,0 +1,84 @@
+body {
+    font-size: 1rem;
+}
+.info {
+    text-align: center;
+    margin: auto;
+}
+.btns {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+form {
+    text-align: center;
+    margin: auto;
+    border:2px solid black;
+    width:30vw;
+    margin-top:30vh;
+    height:50vh;
+    color:white;
+    border-radius: 2%;
+    padding-bottom: 4vh;
+}
+input {
+    width:20vw;
+    height: 5vh;
+    text-align: center;
+}
+.form-in {
+    display:block;
+    
+    
+}
+.form-up {
+    display:block;
+}
+.div-form1 {
+  
+}
+.div-form2 {
+}
+button {
+    margin-top:3vh;
+    height:4vh;
+    width:6vw;
+    color: white;
+    background-color:hsl(210deg,100%,50%)
+    
+}
+button:hover {
+    background-color:orange;
+}
+.cancel {
+    position:relative;
+    left:12vw;
+    font-size:2rem;
+    top:-3vh;
+    cursor: pointer;
+}
+#error-in-message {
+    color:red;
+    margin-top: -8vh;
+    display: none;
+}
+#user-take {
+    color:red;
+    margin-top: -8vh;
+}
+.error-in {
+    display:none;
+    margin-left:1vw;
+    color:red;
+}
+.error-up1 {
+    display: inline-block;
+    margin-left:1vw;
+    color:red;
+}
+.error-up2 {
+    display: inline-block;
+    margin-left:1vw;
+    color:red;
+}
+
