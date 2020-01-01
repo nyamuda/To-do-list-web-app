@@ -13,39 +13,42 @@
 </head>
 
 <body>
-	<header class="info">Welcome</header>
+	<header class="info">Daily Tasks Manager</header>
 	<main>
-		<p class="info">Please Login or Sign Up to create your to-do tasks</p>
+		<p class="info">Please sign in or sign up to create your  daily to-do tasks</p>
 		<div class="btns">
 			<button id="sign-in-btn1">Sign in</button><button id="sign-up-btn1">Sign Up</button>
 		</div>
-		<div class="div-form1">
-			<form class="form-in">
+		<div class="password-errors">
+			<p>*Your password must contain a least one symbolic character, uppercase letter, lowercase letter, numeric value and must be more than 8 characters long</p>
+		</div>
+		<div class="form-in">
+			<form>
 				<p class="cancel">&#xd7;</p>
 				<p id="error-in-message">*Sorry, the username or password is incorrect</p>
-				<p>Username</p>
 				<input id="input-in" type="text" placeholder="enter your username">
-				<p class="error-in">*</p>
-				<p>Password</p>
-				<input id="password1" type="text" placeholder=" eneter password">
-				<p class="error-in">*</p><br>
-				<button id="sign-in-btn2" type="submit">Sign in</button>
+				<input id="password-in" type="text" placeholder=" eneter password">
+				<button id="sign-in-form" type="submit">Sign in</button>
 			</form>
 		</div>
-		<div class="div-form2">
-			<form class="form-up">
-					<p class="cancel">&#xd7;</p>
-					<p id="user-taken">*Sorry, the username has already been taken</p>
-					<p>Username</p>
-					<p>Username</p><input id="input-up" type="text" placeholder="enter your username" required>
+		<div class="form-up">
+			<form>
+				<p id="up-cancel" class="cancel">&#xd7;</p>
+				<p id="user-taken">*Sorry, the username has already been taken</p>
+				<div class="sign-up-name">
+					<input id="input-up" type="text" placeholder="enter your username" required>
 					<p class="error-up1">*</p>
-					<p>Password</p>
-					<input id="password2" type="text" placeholder=" enter password" required>
+				</div>
+				<div class="sign-up-password">
+					<input id="password-up" type="text" placeholder=" enter password" required>
 					<p class="error-up2">*</p>
-					<button id="sign-up-btn2" type="submit">Sign Up</button>
+				</div>
+				<button id="sign-up-form" type="submit">Sign Up</button>
 			</form>
 
 		</div>
 	</main>
-	<script type="text/javascript" src=""></script>
-</body></html>
+	<script type="text/javascript" src="to-do2.js"></script>
+</body>
+
+</html>

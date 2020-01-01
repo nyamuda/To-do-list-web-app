@@ -1,84 +1,127 @@
 body {
     font-size: 1rem;
 }
+header {
+	background-color:darkblue;
+	color:white;
+	font-size:2rem;
+}
+p.info {
+	position: absolute;
+	top:5rem;
+	
+}
 .info {
     text-align: center;
     margin: auto;
+	width: 100%;
 }
+.password-errors {
+	position: absolute;
+	width: 100%;
+	top:24rem;
+	text-align: center;
+	color:red;
+	display:none;
+}
+.password-errors p {
+	width:80%;
+	margin: auto;
+}
+
 .btns {
     display: flex;
     flex-direction:row;
-    justify-content: center;
+    justify-content:center;
+	position:absolute;
+	top: 8rem;
+	margin: auto;
+	width: 100%;
+	text-align: center;
 }
 form {
-    text-align: center;
-    margin: auto;
-    border:2px solid black;
-    width:30vw;
-    margin-top:30vh;
-    height:50vh;
-    color:white;
-    border-radius: 2%;
-    padding-bottom: 4vh;
-}
-input {
-    width:20vw;
-    height: 5vh;
-    text-align: center;
-}
-.form-in {
-    display:block;
-    
-    
-}
-.form-up {
-    display:block;
-}
-.div-form1 {
   
 }
-.div-form2 {
-}
-button {
-    margin-top:3vh;
-    height:4vh;
-    width:6vw;
-    color: white;
-    background-color:hsl(210deg,100%,50%)
+input {
+	height: 2rem;
+	width: 18rem;
+	border: 1px solid;
     
 }
+
+.sign-up-name {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.sign-up-password {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top:1rem;
+}
+.form-up {
+	top:-8rem;
+	transform: scale(0);
+}
+.form-in {
+	top:8rem;
+	transform: scale(0);
+}
+.form-in, .form-up {
+	border:2px solid;
+	height: auto;
+	width:20rem;
+	margin: auto;
+	padding-bottom: 2rem;
+	border-radius: 10px;
+	position:relative;
+}
+form {
+	display: flex;
+	flex-direction:column;
+	justify-content:space-around;
+	text-align: center;
+	align-items: center;
+}
+#password-in {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+#password-up {
+	margin-bottom: 1rem;
+}
+
+
+
 button:hover {
     background-color:orange;
 }
+#sign-in-form, #sign-up-form {
+}
 .cancel {
-    position:relative;
-    left:12vw;
-    font-size:2rem;
-    top:-3vh;
-    cursor: pointer;
+  margin-left: 15rem;
+	font-size: 2rem;
+	margin-bottom: 0rem;
+	margin-top:0rem;
+}
+#up-cancel {
+	margin-left: 17rem;
 }
 #error-in-message {
-    color:red;
-    margin-top: -8vh;
-    display: none;
+    
 }
-#user-take {
-    color:red;
-    margin-top: -8vh;
+#user-taken {
+	color: red;
+	display:none;
 }
 .error-in {
-    display:none;
-    margin-left:1vw;
-    color:red;
+    
 }
 .error-up1 {
-    display: inline-block;
-    margin-left:1vw;
-    color:red;
+   
 }
 .error-up2 {
-    display: inline-block;
-    margin-left:1vw;
-    color:red;
+   
 }
 
