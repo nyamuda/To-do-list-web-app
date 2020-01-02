@@ -8,9 +8,9 @@ var passwordIn = document.querySelector("#password-in");
 var passwordUp = document.querySelector("#password-up");
 var formUp = document.querySelector(".form-up");
 var formIn = document.querySelector(".form-in");
-var upCancel=document.querySelector("#up-cancel");
-var nameTaken=document.querySelector("#user-taken");
-var passwordRules=document.querySelector(".password-errors");
+var upCancel = document.querySelector("#up-cancel");
+var nameTaken = document.querySelector("#user-taken");
+var passwordRules = document.querySelector(".password-errors");
 
 var name = "";
 var password = "";
@@ -21,35 +21,35 @@ var numbers = "0123456789";
 
 
 //on clicking the sign up button,the sign up form will pop up
-signUp1.onclick=function() {
-    formUp.style.transform="scale(1)";
-	formUp.style.transition="transform 0.5s ease-in-out";
-//the sign up and sign in forms must not pop up at the same time on clicking both both buttons;
-	formIn.style.transform="scale(0)";
-	formIn.style.transition="transform 0.01s ease-in-out";
-	
+signUp1.onclick = function () {
+	formUp.style.transform = "scale(1)";
+	formUp.style.transition = "transform 0.5s ease-in-out";
+	//the sign up and sign in forms must not pop up at the same time on clicking both both buttons;
+	formIn.style.transform = "scale(0)";
+	formIn.style.transition = "transform 0.01s ease-in-out";
+
 }
 
-upCancel.onclick=function() {
-	formUp.style.transform="scale(0)";
-	formUp.style.transition="transform 0.01s ease-in-out";
-	passwordRules.style.display="none";
-	}
-
-
-signIn1.onclick=function() {
-    formIn.style.transform="scale(1)";
-	formUp.style.transform="scale(0)";
-	formUp.style.transition="transform 0.5s ease-in-out";
-	formIn.style.transition="transform 0.5s ease-in-out";
-	passwordRules.style.display="none";
-	
+upCancel.onclick = function () {
+	formUp.style.transform = "scale(0)";
+	formUp.style.transition = "transform 0.01s ease-in-out";
+	passwordRules.style.display = "none";
 }
 
-inputUp.oninput = function() {
+
+signIn1.onclick = function () {
+	formIn.style.transform = "scale(1)";
+	formUp.style.transform = "scale(0)";
+	formUp.style.transition = "transform 0.5s ease-in-out";
+	formIn.style.transition = "transform 0.5s ease-in-out";
+	passwordRules.style.display = "none";
+
+}
+
+inputUp.oninput = function () {
 	name = inputUp.value;
 };
-passwordUp.oninput = function() {
+passwordUp.oninput = function () {
 	password = passwordUp.value;
 };
 
@@ -66,7 +66,7 @@ for (var i = 0; i < password.length; i++) {
 	}
 }
 
-signUpForm.onclick = function(event) {
+signUpForm.onclick = function (event) {
 	if (inputUp.value != "" && passwordUp.value != "") {
 		//checking for at least one UpperCase, lowerCase letter and numerical value in the password
 		var symbols = [];
@@ -98,31 +98,29 @@ signUpForm.onclick = function(event) {
 			numericalValue.length >= 1
 		) {
 			//getting the data from the local storage
-			var getData = JSON.parse(localStorage.getItem("theData"));
+			var getData = JSON.parse(localStorage.getItem(name.valueOf()));
 			//if there is nothing in the local storage
 			if (getData == null) {
 				userData[name] = password;
-				localStorage.setItem("theData", JSON.stringify(userData));
-			} 
+				localStorage.setItem(name.valueOf(), JSON.stringify(userData));
+			}
 			//checking if the new username doesn't already exist in the local storage
 			else {
 				if (name.valueOf() in getData) {
-					nameTaken.style.display="block";
+					nameTaken.style.display = "block";
 					event.preventDefault();
-				}
-		
-				else {
+				} else {
 					userData[name] = password;
-					localStorage.setItem("theData", JSON.stringify(userData));
-					event.preventDefault()
-					window.location.href="todo.html";
+					localStorage.setItem(name.valueOf(), JSON.stringify(userData));
+					event.preventDefault();
+					window.location.assign('https://youtube.com')
 				}
 			}
-		} 
+		}
 		// if one of the password requirements is not met
 		else {
-			passwordRules.style.display="block";
+			passwordRules.style.display = "block";
 			event.preventDefault();
 		}
 	}
-};
+}

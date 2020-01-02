@@ -1,0 +1,22 @@
+header {
+	background-color:darkblue;
+	color: white;
+	width:100%;
+	text-align: center;
+}
+.center {
+    align-content: center;
+    margin: auto;
+}
+.welcome {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#my-tasks {
+	display:block;
+}
+#clear-all {
+	display: none;
+}
+
