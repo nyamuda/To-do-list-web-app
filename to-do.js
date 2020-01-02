@@ -27,6 +27,8 @@ input.oninput = function () {
             arr.push(1);
 /*counterChecks is the total number of checkboxes that are checked(see the checkingBox function) and we are dividing this number with the total number of tasks added(we record them using the variable arr) and then multiply it by 100*/
             myPercent.innerText = Math.round((countChecks / arr.length) * 100);
+			
+			
 
 
         }
@@ -57,6 +59,9 @@ clearAll.onclick = function () {
 
 }
 
-//getting data from the local storage
+//getting the username from another js file
+var welcomeName=name;
+greetingUser.innerText="Welcome "+welcomeName+". Create your daily tasks";
+var userInfo=JSON.parse(localStorage.getItem(name));
 
 

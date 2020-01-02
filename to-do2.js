@@ -98,23 +98,21 @@ signUpForm.onclick = function (event) {
 			numericalValue.length >= 1
 		) {
 			//getting the data from the local storage
-			var getData = JSON.parse(localStorage.getItem(name.valueOf()));
+			var getData = JSON.parse(localStorage.getItem(name));
 			//if there is nothing in the local storage
 			if (getData == null) {
 				userData[name] = password;
-				localStorage.setItem(name.valueOf(), JSON.stringify(userData));
+				localStorage.setItem(name, JSON.stringify(userData));
+				event.preventDefault();
+				window.location.href="todo.html";
 			}
 			//checking if the new username doesn't already exist in the local storage
 			else {
 				if (name.valueOf() in getData) {
 					nameTaken.style.display = "block";
 					event.preventDefault();
-				} else {
-					userData[name] = password;
-					localStorage.setItem(name.valueOf(), JSON.stringify(userData));
-					event.preventDefault();
-					window.location.assign('https://youtube.com')
-				}
+				} 
+				
 			}
 		}
 		// if one of the password requirements is not met

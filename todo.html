@@ -9,26 +9,27 @@
 
 <body>
 	<header>Daily Tasks Manager</header>
+	<button id="log-out-btn">Sign out</button>
 	<div class="welcome">
 		<p id="greeting-user"></p>
-		<button>Logout</button>
 	</div>
-	<div class="center">
+	<div>
 		<h1>MY TO DO LIST</h1>
 	</div>
-	<div class="center">
+	<div class="add-tasks">
 		<form action="">
 			<input id="enterText" type="text" placeholder="add a new task" required>
 			<input id="button" type="submit" value="Add">
 		</form>
 	</div>
-	<div class="center" style="margin-left: 50vw">
-		<p id="my-tasks">My Tasks:<span id="percentage">0</span>%</p>
-		<ul style="list-style-type:NONE"></ul>
+	<div class="task-list">
+		<p id="my-tasks">My Tasks:<span id="percentage">0</span> %</p>
+		<ul></ul>
 		<input id="clear-all" type="button" value="Clear All">
 
 	</div>
 
 	<script src="to-do.js"></script>
+	<script src="to-do2.js"></script>
 
 </body></html>

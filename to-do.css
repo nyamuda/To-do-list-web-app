@@ -4,19 +4,37 @@ header {
 	width:100%;
 	text-align: center;
 }
-.center {
-    align-content: center;
-    margin: auto;
+#log-out-btn {
+	text-align: end;
+	border-radius: 0%;
+	background: darkblue;
+	color: white;
+	margin-left:70vw;
 }
-.welcome {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
+
 #my-tasks {
 	display:block;
 }
 #clear-all {
 	display: none;
+	margin: auto;
+}
+ul {
+	list-style-type: none;
+}
+h1 {
+	text-align: center;
+}
+.add-tasks {
+	text-align: center;
+	width: 100%;
+}
+.task-list {
+	text-align: center;
+}
+ul li {
+	text-align:start;
+	width:auto;
+	margin-left:0rem;
 }
 
