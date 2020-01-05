@@ -8,17 +8,25 @@ var clearAll = document.querySelector("#clear-all");
 var greetingUser=document.querySelector("#greeting-user")
 var arr = [];
 var countChecks = 0;
-var myPercent = document.querySelector("#percentage")
+var myPercent = document.querySelector("#percentage");
+var array=[];
 
-//write something in the input
+var allChecked=[];
+var allCheckboxes=document.querySelectorAll("li");
+
+
+
+
+	//write something in the input
 input.oninput = function () {
 // and if you click the add button
     button.onclick = function (event) {
 //the input field must not be empty
         if (input.value != "") {
+			var theTask=input.value;
             var items = document.createElement("li");
 //add a checkbox to the li element
-            items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + input.value;
+            items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + theTask;
             list.appendChild(items);
             event.preventDefault();
             input.value = "";
@@ -28,9 +36,8 @@ input.oninput = function () {
 /*counterChecks is the total number of checkboxes that are checked(see the checkingBox function) and we are dividing this number with the total number of tasks added(we record them using the variable arr) and then multiply it by 100*/
             myPercent.innerText = Math.round((countChecks / arr.length) * 100);
 			
+			array.push(theTask)
 			
-
-
         }
     }
 }
@@ -56,12 +63,62 @@ clearAll.onclick = function () {
     myPercent.innerText = 0;
     arr = [];
     countChecks = 0;
+	array=[];
 
 }
 
-//getting the username from another js file
-var welcomeName=name;
-greetingUser.innerText="Welcome "+welcomeName+". Create your daily tasks";
-var userInfo=JSON.parse(localStorage.getItem(name));
 
 
+
+
+
+
+
+window.onbeforeunload = function() {
+	
+	
+	localStorage.setItem("userData",JSON.stringify(array));
+	/*for(var i=0;i<allCheckboxes.length;i++) {
+		if(allCheckboxes[i].style.textDecoration=="line-through") {
+			allChecked.push(1)
+			
+		}
+		else {
+			allChecked.push(0)
+			
+		}
+	}
+	
+	localStorage.setItem("theChecked",JSON.stringify(allChecked));
+	allChecked=[];*/
+}
+
+
+
+
+window.onload=function() {
+	array=JSON.parse(localStorage.getItem("userData"));
+	allChecked=JSON.parse(localStorage.getItem("theChecked"));
+	if(array==null) {
+		array=[];
+		localStorage.setItem("userData",JSON.stringify(array));
+	}
+	/*else if(allChecked==null) {
+		allChecked=[];
+		localStorage.setItem("theChecked",JSON.stringify(allChecked));
+		
+	}*/
+	else {
+		
+		for(var i=0;i<array.length;i++) {
+		var items = document.createElement("li");
+		items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + array[i];
+            list.appendChild(items);
+		}
+		
+	}
+		
+		
+		
+		clearAll.style.display = "block";
+}
