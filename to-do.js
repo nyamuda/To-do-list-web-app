@@ -12,7 +12,7 @@ var myPercent = document.querySelector("#percentage");
 var array=[];
 
 var allChecked=[];
-var allCheckboxes=document.querySelectorAll("li");
+
 
 
 
@@ -26,7 +26,7 @@ input.oninput = function () {
 			var theTask=input.value;
             var items = document.createElement("li");
 //add a checkbox to the li element
-            items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + theTask;
+            items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + "<span>"+theTask+"<span>";
             list.appendChild(items);
             event.preventDefault();
             input.value = "";
@@ -34,9 +34,9 @@ input.oninput = function () {
             clearAll.style.display = "block";
             arr.push(1);
 /*counterChecks is the total number of checkboxes that are checked(see the checkingBox function) and we are dividing this number with the total number of tasks added(we record them using the variable arr) and then multiply it by 100*/
+			array.push ({key:theTask,value:false})
             myPercent.innerText = Math.round((countChecks / arr.length) * 100);
 			
-			array.push(theTask)
 			
         }
     }
@@ -47,11 +47,22 @@ function checkingBox(event) {
 //the parent element is li
         event.target.parentElement.style.textDecoration = "line-through";
         ++countChecks;
+		for(var i=0;i<array.length;i++) {
+			if(array[i].key==event.target.parentElement.lastChild.innerText) {
+				array[i].value=true;
+			}
+		}
         myPercent.innerText = Math.round((countChecks / arr.length) * 100);
+		console.log(array)
     } else if (event.target.checked == false) {
         --countChecks;
         myPercent.innerText = Math.round((countChecks / arr.length) * 100);
         event.target.parentElement.style.textDecoration = "none";
+		for(var j=0;i<array.length;j++) {
+			if(array[j].key==event.target.parentElement.lastChild.innerText) {
+				array[j].value=false;
+			}
+		}
     } else {
         event.target.parentElement.style.textDecoration = "none";
 
@@ -76,47 +87,32 @@ clearAll.onclick = function () {
 
 window.onbeforeunload = function() {
 	
-	
 	localStorage.setItem("userData",JSON.stringify(array));
-	/*for(var i=0;i<allCheckboxes.length;i++) {
-		if(allCheckboxes[i].style.textDecoration=="line-through") {
-			allChecked.push(1)
-			
-		}
-		else {
-			allChecked.push(0)
-			
-		}
-	}
 	
-	localStorage.setItem("theChecked",JSON.stringify(allChecked));
-	allChecked=[];*/
+	
 }
 
 
 
 
 window.onload=function() {
-	array=JSON.parse(localStorage.getItem("userData"));
-	allChecked=JSON.parse(localStorage.getItem("theChecked"));
-	if(array==null) {
-		array=[];
-		localStorage.setItem("userData",JSON.stringify(array));
-	}
-	/*else if(allChecked==null) {
-		allChecked=[];
-		localStorage.setItem("theChecked",JSON.stringify(allChecked));
-		
-	}*/
-	else {
-		
+	array=JSON.parse(localStorage.getItem("userData")) || [];
+	
+	
 		for(var i=0;i<array.length;i++) {
 		var items = document.createElement("li");
-		items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + array[i];
+		items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + "<span>"+array[i].key+"<span>"
             list.appendChild(items);
+			if(array[i].value==true) {
+				var theChecked=document.querySelectorAll(".check-box").checked=true;
+				items.style.textDecoration="line-through";
+				
+			}
+			else {
+				items.style.textDecoration="none"
+			}
 		}
 		
-	}
 		
 		
 		
