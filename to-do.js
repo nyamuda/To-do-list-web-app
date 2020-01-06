@@ -6,12 +6,11 @@ var list = document.querySelector("ul");
 var myTasks = document.querySelector("#my-tasks");
 var clearAll = document.querySelector("#clear-all");
 var greetingUser=document.querySelector("#greeting-user")
-var arr = [];
+var arr=0;
 var countChecks = 0;
 var myPercent = document.querySelector("#percentage");
 var array=[];
-
-var allChecked=[];
+var record={};
 
 
 
@@ -32,10 +31,10 @@ input.oninput = function () {
             input.value = "";
             myTasks.style.display = "block";
             clearAll.style.display = "block";
-            arr.push(1);
+            ++arr;
 /*counterChecks is the total number of checkboxes that are checked(see the checkingBox function) and we are dividing this number with the total number of tasks added(we record them using the variable arr) and then multiply it by 100*/
 			array.push ({key:theTask,value:false})
-            myPercent.innerText = Math.round((countChecks / arr.length) * 100);
+            myPercent.innerText = Math.round((countChecks / arr) * 100);
 			
 			
         }
@@ -52,13 +51,13 @@ function checkingBox(event) {
 				array[i].value=true;
 			}
 		}
-        myPercent.innerText = Math.round((countChecks / arr.length) * 100);
+        myPercent.innerText = Math.round((countChecks / arr) * 100);
 		console.log(array)
     } else if (event.target.checked == false) {
         --countChecks;
-        myPercent.innerText = Math.round((countChecks / arr.length) * 100);
+        myPercent.innerText = Math.round((countChecks / arr) * 100);
         event.target.parentElement.style.textDecoration = "none";
-		for(var j=0;i<array.length;j++) {
+		for(var j=0;j<array.length;j++) {
 			if(array[j].key==event.target.parentElement.lastChild.innerText) {
 				array[j].value=false;
 			}
@@ -72,7 +71,7 @@ clearAll.onclick = function () {
     list.innerHTML = "";
     clearAll.style.display = "none";
     myPercent.innerText = 0;
-    arr = [];
+    arr =0;
     countChecks = 0;
 	array=[];
 
@@ -86,8 +85,13 @@ clearAll.onclick = function () {
 
 
 window.onbeforeunload = function() {
+	record={
+		totalTasks:arr,
+		totalCompleted:countChecks
+	}
 	
 	localStorage.setItem("userData",JSON.stringify(array));
+	localStorage.setItem("marks",JSON.stringify(record))
 	
 	
 }
@@ -97,6 +101,13 @@ window.onbeforeunload = function() {
 
 window.onload=function() {
 	array=JSON.parse(localStorage.getItem("userData")) || [];
+	record=JSON.parse(localStorage.getItem("marks")) || {};
+	
+	arr=record.totalTasks;
+	countChecks=record.totalCompleted;
+	myPercent.innerText = Math.round((countChecks / arr) * 100);
+	
+	//var theChecked=document.querySelectorAll(".check-box");
 	
 	
 		for(var i=0;i<array.length;i++) {
@@ -104,8 +115,9 @@ window.onload=function() {
 		items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + "<span>"+array[i].key+"<span>"
             list.appendChild(items);
 			if(array[i].value==true) {
-				var theChecked=document.querySelectorAll(".check-box").checked=true;
+				
 				items.style.textDecoration="line-through";
+				items.firstChild.checked=true;
 				
 			}
 			else {
