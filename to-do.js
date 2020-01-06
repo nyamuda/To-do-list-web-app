@@ -1,7 +1,7 @@
 
 var input = document.querySelector("#enterText");
 var heading = document.querySelector("h1");
-var button = document.querySelector("#button");
+var button = document.querySelector("#add-button");
 var list = document.querySelector("ul");
 var myTasks = document.querySelector("#my-tasks");
 var clearAll = document.querySelector("#clear-all");
@@ -103,9 +103,10 @@ window.onload=function() {
 	array=JSON.parse(localStorage.getItem("userData")) || [];
 	record=JSON.parse(localStorage.getItem("marks")) || {};
 	
-	arr=record.totalTasks;
-	countChecks=record.totalCompleted;
-	myPercent.innerText = Math.round((countChecks / arr) * 100);
+	arr=record["totalTasks"];
+	countChecks=record["totalCompleted"];
+	
+	myPercent.innerText = Math.round((countChecks / arr) * 100) || 0;
 	
 	//var theChecked=document.querySelectorAll(".check-box");
 	
@@ -123,10 +124,14 @@ window.onload=function() {
 			else {
 				items.style.textDecoration="none"
 			}
+			
 		}
-		
-		
-		
-		
+	if(myPercent.innerText!=0) {
 		clearAll.style.display = "block";
+	} 
+		
+		
+		
+		
+		
 }
