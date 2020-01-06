@@ -1,15 +1,11 @@
-header {
-	background-color:darkblue;
+body {
 	color: white;
-	width:100%;
-	text-align: center;
+	background-color: rgb(32,32,32);
+	font-family: 'Kulim Park', sans-serif;
 }
-#log-out-btn {
-	text-align: end;
-	border-radius: 0%;
-	background: darkblue;
-	color: white;
-	margin-left:70vw;
+
+#enterText {
+	font-family: 'Kulim Park', sans-serif;
 }
 
 #my-tasks {
@@ -18,9 +14,24 @@ header {
 #clear-all {
 	display: none;
 	margin: auto;
+	background-color:royalblue;
+	color:white;
+	border-radius:;
+	transition: background-color 0.3s ease-in-out;
+	border: none;
+	cursor: pointer;
+	padding:5px;
+}
+#clear-all:hover {
+	background-color: midnightblue;
+	font-family: 'Kulim Park', sans-serif;
 }
 ul {
 	list-style-type:circle;
+}
+#heading {
+	position: relative;
+	top:5rem;
 }
 h1 {
 	text-align: center;
@@ -28,13 +39,70 @@ h1 {
 .add-tasks {
 	text-align: center;
 	width: 100%;
+	position: relative;
+	top:5rem;
 }
 .task-list {
 	text-align: center;
+	position: relative;
+	top: 5rem;
 }
 ul li {
 	text-align:start;
 	width:auto;
 	margin-left:0rem;
 }
+#add-button {
+	color:white;
+	background-color: royalblue;
+	border:none;
+	padding:3px 4px 3px 4px;
+	transition: background-color 0.3s ease-in-out;
+	cursor: pointer;
+	font-family: 'Kulim Park', sans-serif;
+}
+#add-button:hover {
+	background-color: midnightblue;
+}
+.check-box {
+	position: absolute;
+	transform: scale(1.1);
+}
+label {
+	position: relative;
+	left:1.5rem;
+	font-family: 'Roboto', sans-serif;
+	top:-1px;
+	
+}
+
+
+@media (min-width: 480px) {
+	ul li  {
+		margin-left: 5rem;
+	}
+}
+
+@media (min-width:768px) {
+	ul li  {
+		margin-left: 14rem;
+	}
+	
+}
+
+@media (min-width:992px) {
+	ul li  {
+		margin-left: 20rem;
+	}
+	
+}
+
+@media (min-width:1200px) {
+	ul li  {
+		margin-left: 35vw;
+	}
+	
+}
+
+
 

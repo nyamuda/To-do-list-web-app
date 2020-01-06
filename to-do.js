@@ -25,7 +25,7 @@ input.oninput = function () {
 			var theTask=input.value;
             var items = document.createElement("li");
 //add a checkbox to the li element
-            items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + "<span>"+theTask+"<span>";
+            items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + "<label>"+theTask+"</label>";
             list.appendChild(items);
             event.preventDefault();
             input.value = "";
@@ -113,7 +113,7 @@ window.onload=function() {
 	
 		for(var i=0;i<array.length;i++) {
 		var items = document.createElement("li");
-		items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + "<span>"+array[i].key+"<span>"
+		items.innerHTML = '<input type="checkbox" class="check-box" onclick="checkingBox(event)">' + "<label>"+array[i].key+"</label>"
             list.appendChild(items);
 			if(array[i].value==true) {
 				
@@ -126,7 +126,7 @@ window.onload=function() {
 			}
 			
 		}
-	if(myPercent.innerText!=0) {
+	if(array.length!=0) {
 		clearAll.style.display = "block";
 	} 
 		

@@ -4,26 +4,28 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>To Do List</title>
+	<link href="https://fonts.googleapis.com/css?family=Kulim+Park&display=swap" rel="stylesheet">
+	
+	<link rel="stylesheet" href="to-do.css">
+	
+	
 </head>
-<link rel="stylesheet" href="to-do.css">
 
 <body>
-	<header>Daily Tasks Manager</header>
-	<button id="log-out-btn">Sign out</button>
 	<div class="welcome">
 		<p id="greeting-user"></p>
 	</div>
-	<div>
+	<div id="heading">
 		<h1>MY TO DO LIST</h1>
 	</div>
 	<div class="add-tasks">
 		<form action="">
 			<input id="enterText" type="text" placeholder="add a new task" required>
-			<input id="button" type="submit" value="Add">
+			<input id="add-button" type="button" value="Add Task">
 		</form>
 	</div>
 	<div class="task-list">
-		<p id="my-tasks">My Tasks:<span id="percentage">0</span> %</p>
+		<p id="my-tasks">My Tasks: <span id="percentage">0</span>% Completed</p>
 		<ul></ul>
 		<input id="clear-all" type="button" value="Clear All">
 
